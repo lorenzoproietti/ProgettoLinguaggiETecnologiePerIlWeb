@@ -14,6 +14,8 @@
 
     <!-- Custom styles for this template -->
     <link href="form-validation.css" rel="stylesheet">
+
+    <script type="text/javascript" language="javascript" src="formScript.js"></script>
   </head>
 
   <body class="bg-light">
@@ -74,12 +76,12 @@
 
             <hr class="mb-4">
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="save-info">
+              <input type="checkbox" class="custom-control-input" id="save-info" onChange="return infoClient();">
               <label class="custom-control-label" for="save-info">Save this information for next time</label>
             </div>
             
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Check</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit" onClick="return validaForm();">Check</button>
           </form>
         </div>
       </div>
