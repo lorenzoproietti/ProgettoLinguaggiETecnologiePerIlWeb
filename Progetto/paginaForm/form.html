@@ -22,7 +22,7 @@
 
     <div class="container">
       <div class="py-5 text-center">
-        Qui sereve il logo.
+        Qui serve il logo.
         <h2>Enter Your Preferences</h2>
         <p class="lead">Choose departure date, return date, continental area and preferred temperature range and we will do the rest</p>
       </div>
@@ -62,26 +62,31 @@
                   <option value="Africa">Africa</option>
                   <option value="Oceania">Oceania</option>
                 </select>
-              <div class="invalid-feedback">
-                Please enter your desired continental area.
-              </div>
             </div>
 
             <div class="mb-3">
               <label for="temp1">Minimum Temperature</label>
-              <input type="number" class="form-control" id="temp1" min="-50" max="50">
+              <input type="number" class="form-control" id="temp1" min="-50" max="50" required>
+              <div class="invalid-feedback">
+                Please enter the desired minimum temperature.
+              </div>
+            </div>
+            <div class="mb-4">
               <label for="temp2">Maximum Temperature</label>
-              <input type="number" class="form-control" id="temp2" min="-50" max="50">
+              <input type="number" class="form-control" id="temp2" min="-50" max="50" required>
+              <div class="invalid-feedback">
+                Please enter the desired maximum temperature.
+              </div>
             </div>
 
-            <hr class="mb-4">
+            <hr class="mb-5">
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="save-info" onChange="return infoClient();">
               <label class="custom-control-label" for="save-info">Save this information for next time</label>
             </div>
             
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit" onClick="return validaForm();">Check</button>
+            <hr class="mb-5">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Check</button>
           </form>
         </div>
       </div>
@@ -108,7 +113,7 @@
           // Loop over them and prevent submission
           var validation = Array.prototype.filter.call(forms, function(form) {
             form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
+              if (form.checkValidity() === false || validaForm() == false) {
                 event.preventDefault();
                 event.stopPropagation();
               }
