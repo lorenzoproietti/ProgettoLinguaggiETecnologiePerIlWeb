@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+
+.jumbotron{
+	background-image: url("../Images/Fly_iStock_000050476154_Large.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment:fixed;
+	background-position: 0% 85%;
+	color: #FFFFFF;
+	font-family: "Bebas Neue Regular";
+}
+
+
+
