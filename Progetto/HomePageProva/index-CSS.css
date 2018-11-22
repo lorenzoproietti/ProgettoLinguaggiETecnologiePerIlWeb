@@ -2,12 +2,14 @@
 /* CSS Document */
 
 .jumbotron{
-	background-image: url("../Images/Fly_iStock_000050476154_Large.jpg");
+	background-image: url("../Images/Prova.jpg");
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: auto;
 	background-attachment:fixed;
-	background-position: 0% 85%;
 	color: #FFFFFF;
+}
+
+.display-3{
 	font-family: "Bebas Neue Regular";
 }
 
