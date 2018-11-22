@@ -3,7 +3,7 @@
 
 .jumbotron{
 	background-image: url("../Images/Prova.jpg");
-	background-repeat: no-repeat;
+	background-repeat:no-repeat;
 	background-size: auto;
 	background-attachment:fixed;
 	color: #FFFFFF;
@@ -18,5 +18,7 @@
 	src: url("../font/BebasNeue Book.otf");
 }
 
-
-
+#map{
+	text-align: center;
+	display: block;
+}
