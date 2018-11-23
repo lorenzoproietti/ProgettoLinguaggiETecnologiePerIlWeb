@@ -18,6 +18,15 @@
 	src: url("../font/BebasNeue Book.otf");
 }
 
+.title-map{
+	font-family: "Bebas Neue Regular";
+	font-size: 60px;
+}
+
+.click-on{
+	color: #575757;
+}
+
 #map{
 	text-align: center;
 	display: block;
