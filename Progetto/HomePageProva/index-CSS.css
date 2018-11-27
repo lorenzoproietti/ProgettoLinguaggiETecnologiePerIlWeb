@@ -3,9 +3,15 @@
 
 .jumbotron{
 	background-image: url("../Images/Prova.jpg");
+	height:320px;
+	background-color:#008ca8;
+	padding:24px;
+	display:table;
+	width:100%;
+	background-size:cover;
+	background-position:50% 60%;
 	background-repeat:no-repeat;
-	background-size: auto;
-	background-attachment:fixed;
+	margin:0 auto;
 	color: #FFFFFF;
 }
 
