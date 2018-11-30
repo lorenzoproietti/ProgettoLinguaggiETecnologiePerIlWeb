@@ -31,6 +31,13 @@
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Your Requests</h4>
           <form class="needs-validation" novalidate>
+            <div class="firstRow">
+                <label for="departureCity">Departure City</label>
+                <input type="text" class="form-control" id="departureCity" required>
+                <div class="invalid-feedback">
+                  Valid departure city is required.
+                </div>
+            </div>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="departureDate">Departure Date</label>
