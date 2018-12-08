@@ -30,10 +30,10 @@
       <div class="row">
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Your Requests</h4>
-          <form class="needs-validation" novalidate>
+          <form class="needs-validation" novalidate method="post" action="flights.php">
             <div class="firstRow">
                 <label for="departureCity">Departure City</label>
-                <input type="text" class="form-control" id="departureCity" required>
+                <input type="text" class="form-control" id="departureCity" name="dC" required>
                 <div class="invalid-feedback">
                   Valid departure city is required.
                 </div>
@@ -41,14 +41,14 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="departureDate">Departure Date</label>
-                <input type="date" class="form-control" id="departureDate" required>
+                <input type="date" class="form-control" id="departureDate" name="dD" required>
                 <div class="invalid-feedback">
                   Valid departure date is required.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="returnDate">Return Date</label>
-                <input type="date" class="form-control" id="returnDate" required>
+                <input type="date" class="form-control" id="returnDate" name="rD" required>
                 <div class="invalid-feedback">
                   Valid return date is required.
                 </div>
@@ -57,7 +57,7 @@
 
             <div class="mb-3">
               <label for="continentalArea">Continental Area</label>
-              <select id="continentalArea">
+              <select id="continentalArea" name="cA">
                   <option selected value="None"></option>
                   <option value="Eastern Europe">Eastern Europe</option>
                   <option value="West Europe">West Europe</option>
@@ -73,14 +73,14 @@
 
             <div class="mb-3">
               <label for="temp1">Minimum Temperature</label>
-              <input type="number" class="form-control" id="temp1" min="-50" max="50" required>
+              <input type="number" class="form-control" id="temp1" min="-50" max="50" name="t1" required>
               <div class="invalid-feedback">
                 Please enter the desired minimum temperature.
               </div>
             </div>
             <div class="mb-4">
               <label for="temp2">Maximum Temperature</label>
-              <input type="number" class="form-control" id="temp2" min="-50" max="50" required>
+              <input type="number" class="form-control" id="temp2" min="-50" max="50" name="t2" required>
               <div class="invalid-feedback">
                 Please enter the desired maximum temperature.
               </div>
@@ -93,7 +93,7 @@
             </div>
             
             <hr class="mb-5">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Check</button>
+            <button name="Check" class="btn btn-primary btn-lg btn-block" type="submit">Check</button>
           </form>
         </div>
       </div>
