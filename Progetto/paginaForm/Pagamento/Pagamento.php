@@ -49,13 +49,31 @@
 			padding: 10px;
 		}
 	</style>
+	
 </head>
 <body>
 
+    <?php
+        session_start();
+        $_SESSION['codiceAereoPartenza'] = $_GET['p0'];
+        $_SESSION['compagniaPartenza'] = $_GET['p1'];
+        $_SESSION['cittàPartenza1'] = $_GET['p2'];
+        $_SESSION['cittàArrivo1'] = $_GET['p3'];
+        $_SESSION['partenza1'] = $_GET['p4'];
+        $_SESSION['arrivo1'] = $_GET['p5'];
+        $_SESSION['prezzo1'] = $_GET['p6'];
+        $_SESSION['codiceAereoRitorno'] = $_GET['p7'];
+        $_SESSION['compagniaRitorno'] = $_GET['p8'];
+        $_SESSION['cittàPartenza2'] = $_GET['p9'];
+        $_SESSION['cittàArrivo2'] = $_GET['p10'];
+        $_SESSION['partenza2'] = $_GET['p11'];
+        $_SESSION['arrivo2'] = $_GET['p12'];
+        $_SESSION['prezzo2'] = $_GET['p13'];
+    ?>
 
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form" id="Payment">
+			<form class="contact100-form validate-form" id="Payment" method="post" action="Conferma/Conferma.php">
 				<span class="contact100-form-title">
 					Insert your data
 				</span>
@@ -127,7 +145,7 @@
 				</div>
 
 				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn">
+					<button class="contact100-form-btn" name="Check"> 
 						Buy it!
 					</button>
 				</div>
@@ -171,6 +189,7 @@
 	  gtag('js', new Date());
 
 	  gtag('config', 'UA-23581568-13');
-	</script>
+    </script>
+
 </body>
 </html>
