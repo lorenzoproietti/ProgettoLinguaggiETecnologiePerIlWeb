@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+
+.fh5co-overlay{
+	background-image: url("../../Images/Fly_iStock_000050476154_Large.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 100% 20%;
+}
+
+.invalid-feedback{display:none;width:100%;margin-top:.25rem;font-size:80%;color:#dc3545}
+
+#continentalArea{
+	color: black;
+}
+
+.image-map{
+	margin-left: 8%;
+}

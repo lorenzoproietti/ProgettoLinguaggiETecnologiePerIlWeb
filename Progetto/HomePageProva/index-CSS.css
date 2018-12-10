@@ -43,7 +43,12 @@
   	color: white; margin-top: 32.5% ; margin-right: 70%;
 }
 
-.timeline_header{
+.timeline_header {
+	font-family: "Bebas Neue Regular"; font-size: 35px;
+	text-align: left; margin-left: 7.5%; margin-top: -1.5%; margin-bottom: -0.1%;
+}
+
+.parisclass {
 	font-family: "Bebas Neue Regular"; font-size: 35px;
 	text-align: left; margin-left: 7.5%; margin-top: -1.5%; margin-bottom: -0.1%;
 }
@@ -65,18 +70,20 @@
 	}
 }
 
-@media screen and (max-width:1199.98px){
-	.newyorkclass{
-    	margin-top: 42%; margin-right: 55%;
-	}
-}
-
 @media screen and (max-width:1440px){
 	.newyorkclass{
     	margin-top: 37%; margin-right: 60%;
 	}
 	.timeline_header{
 		margin-left: 9%;
+	}
+	.parisclass{
+    	margin-top: 74%
+	}
+}
+@media screen and (max-width:1199.98px){
+	.newyorkclass{
+    	margin-top: 60%; margin-right: 55%;
 	}
 }
 
