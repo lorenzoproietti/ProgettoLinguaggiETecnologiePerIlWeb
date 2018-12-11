@@ -13,20 +13,6 @@
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FREEHTML5.CO" />
 
-  <!-- 
-	//////////////////////////////////////////////////////
-
-	FREE HTML5 TEMPLATE 
-	DESIGNED & DEVELOPED by FREEHTML5.CO
-		
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
-
-	//////////////////////////////////////////////////////
-	 -->
-
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
@@ -62,6 +48,10 @@
 	
 	<link rel="stylesheet" href="css/style.css">
 
+	<link href="_alert.css" media="screen" rel="stylesheet" type="text/css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
+	<script src="_alert.js" ></script>
+
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
@@ -69,6 +59,8 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+
+	<script type="text/javascript" language="javascript" src="formScript.js"></script>
 
 	</head>
 	<body>
@@ -112,25 +104,22 @@
 
 								   <!-- Tab panes -->
 									<div class="tab-content">
-									<form class="needs-validation" novalidate method="post" action="../paginaForm/flights.php">
+									<form class="needs-validation" novalidate method="post" action="../paginaForm/flights.php" onSubmit="return validaForm();">
 									 <div role="tabpanel" class="tab-pane active" id="flights">
 										<div class="row">
 											<div class="col-xxs-12 col-xs-6 mt col-lg-12">
 												<div class="firstRow">
                										<label for="departureCity">Departure City</label>
-               									  <input type="text" class="form-control" id="departureCity" name="dC" required>
-                									<div class="invalid-feedback"> Valid departure city is required.</div>
+               									  <input type="text" class="form-control" id="departureCity" name="dC">
             									</div>
 											</div>
 										<div class="col-xxs-12 col-xs-6 mt alternate">
 											<label for="departureDate">Departure Date</label>
-                							<input type="date" class="form-control" id="departureDate" name="dD" required>
-                							<div class="invalid-feedback">Valid departure date is required.</div>
+                							<input type="date" class="form-control" id="departureDate" name="dD">
 										  </div>
 											<div class="col-xxs-12 col-xs-6 mt alternate">
 												<label for="returnDate">Return Date</label>
-                								<input type="date" class="form-control" id="returnDate" name="rD" required>
-                								<div class="invalid-feedback">Valid return date is required.</div>
+                								<input type="date" class="form-control" id="returnDate" name="rD">
 											</div>
 											<div class="col-sm-12 mt">
 												<label for="continentalArea">Continental Area</label>
@@ -149,16 +138,14 @@
 											</div>
 											<div class="col-xxs-12 col-xs-6 mt">
 												<label for="temp1">Minimum Temperature</label>
-              									<input type="number" class="form-control" id="temp1" min="-50" max="50" name="t1" required>
-              									<div class="invalid-feedback">Please enter the desired minimum temperature.</div>
+              									<input type="number" class="form-control" id="temp1" name="t1">
 											</div>
 											<div class="col-xxs-12 col-xs-6 mt">
 												<label for="temp2">Maximum Temperature</label>
-              									<input type="number" class="form-control" id="temp2" min="-50" max="50" name="t2" required>
-              									<div class="invalid-feedback">Please enter the desired maximum temperature.</div>
+              									<input type="number" class="form-control" id="temp2" name="t2">
 											</div>
 											<div class="col-xs-12">
-												<input type="submit" class="btn btn-primary btn-block" value="Search Flight">
+												<input type="submit" name="Check" class="btn btn-primary btn-block" value="Search Flight">
 											</div>
 										</div>
 									 </div>

@@ -25,7 +25,7 @@
         <?php
                 $dbconn = pg_connect("host=localhost port=5432 dbname=ProgettoLTW user=postgres password=Lulic71.") or die('Could not connect: '.pg_last_error());
                 if(!(isset($_POST['Check']))) {
-                    header("Location: ../HomePageProva/index.html");
+                    header("Location: ../Nuova HomePage/index.html");
                 }
                 else {
                     $departureCity = $_POST['dC'];

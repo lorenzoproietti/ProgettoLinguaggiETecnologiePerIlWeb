@@ -19,21 +19,23 @@
       <?php
         session_start();
         if(!(isset($_POST['Check']))) {
-            header("Location: ../../../HomePageProva/index.html");
+            header("Location: ../../../Nuova HomePage/index.html");
         }
         else {
-            $nome_mittente = "Proietti Monti";
-            $mail_mittente = "lorenzoproietti16@gmail.com";
-            $mail_destinatario = $_POST['email'];
-            $mail_oggetto = "Payment Summary";
-            $mail_corpo = "DEPARTURE PLANE CODE: " . $_SESSION['codiceAereoPartenza'] . "\r\nDEPARTURE AIRLINE: " . $_SESSION['compagniaPartenza'] . "\r\nDEPARTURE CITY: " . $_SESSION['cittàPartenza1'] . "\r\nARRIVAL CITY: " . $_SESSION['cittàArrivo1'] . "\r\nDEPARTURE DATE: " . $_SESSION['partenza1'] . "\r\nARRIVAL DATE: " . $_SESSION['arrivo1'] . "\r\nPRICE: " . $_SESSION['prezzo1'] . "\r\nRETURN PLANE CODE: " . $_SESSION['codiceAereoRitorno'] . "\r\nRETURN AIRLINE: " . $_SESSION['compagniaRitorno'] . "\r\nDEPARTURE CITY: " . $_SESSION['cittàPartenza2'] . "\r\nARRIVAL CITY: " . $_SESSION['cittàArrivo2'] . "\r\nDEPARTURE DATE: " . $_SESSION['partenza2'] . "\r\nARRIVAL DATE: " . $_SESSION['arrivo2'] . "\r\nPRICE: " . $_SESSION['prezzo2'];
-            $mail_headers = "From: " .  $nome_mittente . " <" .  $mail_mittente . ">\r\n";
-            $mail_headers .= "Reply-To: " .  $mail_mittente . "\r\n";
-            $mail_headers .= "X-Mailer: PHP/" . phpversion();
-            $parametri = "-f lorenzoproietti16@gmail.com";
-            mail($mail_destinatario, $mail_oggetto, $mail_corpo, $mail_headers, $parametri);
-            $_SESSION = array();
-            session_destroy();
+          $nome_mittente = "Proietti Monti";
+          $mail_mittente = "lorenzoproietti16@gmail.com";
+          $mail_destinatario = $_POST['email'];
+          $mail_oggetto = "Payment Summary";
+          $mail_corpo = "DEPARTURE PLANE CODE: " . $_SESSION['codiceAereoPartenza'] . "\r\nDEPARTURE AIRLINE: " . $_SESSION['compagniaPartenza'] . "\r\nDEPARTURE CITY: " . $_SESSION['cittàPartenza1'] . "\r\nARRIVAL CITY: " . $_SESSION['cittàArrivo1'] . "\r\nDEPARTURE DATE: " . $_SESSION['partenza1'] . "\r\nARRIVAL DATE: " . $_SESSION['arrivo1'] . "\r\nPRICE: " . $_SESSION['prezzo1'] . "\r\nRETURN PLANE CODE: " . $_SESSION['codiceAereoRitorno'] . "\r\nRETURN AIRLINE: " . $_SESSION['compagniaRitorno'] . "\r\nDEPARTURE CITY: " . $_SESSION['cittàPartenza2'] . "\r\nARRIVAL CITY: " . $_SESSION['cittàArrivo2'] . "\r\nDEPARTURE DATE: " . $_SESSION['partenza2'] . "\r\nARRIVAL DATE: " . $_SESSION['arrivo2'] . "\r\nPRICE: " . $_SESSION['prezzo2']; 
+          $mail_headers = "From: " .  $nome_mittente . " <" .  $mail_mittente . ">\r\n";
+          $mail_headers .= "Reply-To: " .  $mail_mittente . "\r\n";
+          $mail_headers .= "X-Mailer: PHP/" . phpversion();
+          if (mail($mail_destinatario, $mail_oggetto, $mail_corpo, $mail_headers))
+            echo "Messaggio inviato con successo a " . $mail_destinatario;
+          else
+            echo "Errore. Nessun messaggio inviato.";
+          $_SESSION = array();
+          session_destroy();
         }
         ?>
 
@@ -43,7 +45,7 @@
         <h1 class="cover-heading">Payment Executed</h1>
         <p class="lead">The payment was successful, an email was sent to the address entered for the summary</p>
         <p class="lead">
-          <a href="../../../HomePageProva/index.html" class="btn btn-lg btn-secondary">Back to HomePage</a>
+          <a href="../../../Nuova HomePage/index.html" class="btn btn-lg btn-secondary">Back to HomePage</a>
         </p>
       </main>
 
