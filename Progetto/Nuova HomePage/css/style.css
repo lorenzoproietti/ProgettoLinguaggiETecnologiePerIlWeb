@@ -240,7 +240,10 @@ figure {
 
 /* Superfish Override Menu */
 .sf-menu {
-  margin: 7px 0 0 0 !important;
+    margin-top: 8%;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 0;
 }
 
 .sf-menu {
@@ -373,7 +376,7 @@ figure {
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 16px;
+  font-size: 25px;
   color: #F78536;
   background: rgba(0, 0, 0, 0.06);
   padding: 10px;
@@ -390,11 +393,14 @@ figure {
 }
 
 #fh5co-menu-wrap {
-  position: relative;
-  z-index: 2;
-  display: block;
-  float: right;
-  margin-top: 15px;
+    position: relative;
+    z-index: 2;
+    display: block;
+    float: right;
+    margin-top: 2px;
+}
+#fh5co-menu-wrap .sf-menu a {
+  padding: 1em .75em;
 }
 #fh5co-menu-wrap .sf-menu a {
   padding: 1em .75em;
@@ -528,7 +534,7 @@ figure {
   width: 100%;
   float: left;
   margin-top: -7em;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 255);
   -webkit-box-shadow: 0px 43px 83px -20px rgba(0, 0, 0, 0.41);
   -moz-box-shadow: 0px 43px 83px -20px rgba(0, 0, 0, 0.41);
   -ms-box-shadow: 0px 43px 83px -20px rgba(0, 0, 0, 0.41);
