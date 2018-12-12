@@ -31,11 +31,29 @@ function validaForm() {
         _alert("Error", "The minimum temperature must be less than or equal to the maximum temperature");
         return false;
     }
+    if(document.getElementById("save-info").checked) {
+        localStorage.setItem("departureCity", document.getElementById("departureCity").value);
+        localStorage.setItem("departureDate", document.getElementById("departureDate").value);
+        localStorage.setItem("returnDate", document.getElementById("returnDate").value);
+        localStorage.setItem("temp1", document.getElementById("temp1").value);
+        localStorage.setItem("temp2", document.getElementById("temp2").value);
+    }
     return true;
 }
 
 function infoClient() {
     if(document.getElementById("save-info").checked) _alert("Info", "You have selected to save this information for the next time");
     else _alert("Info", "You have selected not to save this information for the next time");
+    return true;
+}
+
+function sectFields() {
+    if(localStorage.getItem("departureCity") != null) {
+        document.getElementById("departureCity").value = localStorage.getItem("departureCity");
+        document.getElementById("departureDate").value = localStorage.getItem("departureDate");
+        document.getElementById("returnDate").value = localStorage.getItem("returnDate");
+        document.getElementById("temp1").value = localStorage.getItem("temp1");
+        document.getElementById("temp2").value = localStorage.getItem("temp2");
+    }
     return true;
 }
