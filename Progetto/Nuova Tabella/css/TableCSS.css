@@ -1,21 +1,9 @@
-@charset "utf-8";
-/* CSS Document */
-
-.fh5co-overlay{
-	background-image: url("../../Images/Fly_iStock_000050476154_Large.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: 100% 20%;
+#fh5co-primary-menu{
+	margin-top: 6.5%;
 }
 
-.invalid-feedback{display:none;width:100%;margin-top:.25rem;font-size:80%;color:#dc3545}
-
-#continentalArea{
-	color: black;
-}
-
-.image-map{
-	margin-left: 8%;
+#fh5co-primary-menu a{
+	background: #FFFFFF;
 }
 
 #search{
@@ -46,8 +34,4 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	font-weight: 300;
-}
-
-.custom-control{
-	margin-left: 4%;
 }

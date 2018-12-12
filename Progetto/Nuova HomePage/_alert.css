@@ -19,7 +19,7 @@
 }
 
 #alert #headalert {
-	width: 390px;
+	width: 361px;
 	height: 5px;
 	background: #fa4b2a;
 	-webkit-border-radius:	5px 5px 0px 0px;
@@ -32,10 +32,11 @@
 	width: 360px;
 	padding: 15px;
 	background: #f5f5f5;
-	color: #cbc2c2;
+	color: red;
 	font-family: arial;
 	font-size: 17px;
 	float: left;
+	
 }
 
 #alert #message {
