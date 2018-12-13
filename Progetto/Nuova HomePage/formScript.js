@@ -37,6 +37,7 @@ function validaForm() {
         localStorage.setItem("returnDate", document.getElementById("returnDate").value);
         localStorage.setItem("temp1", document.getElementById("temp1").value);
         localStorage.setItem("temp2", document.getElementById("temp2").value);
+        localStorage.setItem("continentalArea", document.getElementById("continentalArea").value);
     }
     return true;
 }
@@ -54,6 +55,7 @@ function sectFields() {
         document.getElementById("returnDate").value = localStorage.getItem("returnDate");
         document.getElementById("temp1").value = localStorage.getItem("temp1");
         document.getElementById("temp2").value = localStorage.getItem("temp2");
+        document.getElementById("continentalArea").value = localStorage.getItem("continentalArea");
     }
     return true;
 }

@@ -2,12 +2,24 @@
 <html>
     <title>Flights</title>
     <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-        <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+	
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+	<link rel="stylesheet" href="../Nuova HomePage/css/icomoon.css">
+	<link rel="stylesheet" href="../Nuova HomePage/css/style.css">
+	
+    <link rel="stylesheet" href="css/TableCSS.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Superfish -->
+	<link rel="stylesheet" href="css/superfish.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+
         <style>
-            a:link, a:visited {
-                background-color: teal;
+            a.my_button:link, a.my_button:visited {
+                background-color: grey;
                 color: white;
                 padding: 14px 25px;
                 text-align: center; 
@@ -15,8 +27,8 @@
                 display: inline-block;
             }
 
-            a:hover, a:active {
-            background-color: lime;
+            a.my_button:hover, a.my_button:active {
+            background-color: red;
             }
         </style>
 
@@ -42,6 +54,21 @@
                            and $temp2 >= all(select tem
                            from meteo
                            where citta = v1.arrivo and giorno >= v1.giornoPartenza and giorno <= v1.giornoArrivo) and v2.giornoArrivo = '$returnDate'";
+                           echo "<header id=\"fh5co-header-section\" class=\"sticky-banner\">
+                                 <div class=\"container\">
+                                    <div class=\"nav-header\">
+                                        <a href=\"#\" class=\"js-fh5co-nav-toggle fh5co-nav-toggle dark\"><i></i></a>
+                                        <h1 id=\"fh5co-logo\"><a href=\"../Nuova HomePage/index.html\"><em class=\"icon-airplane\"></em>Travel Tracker</a></h1>
+                                   
+                                        <nav id=\"fh5co-menu-wrap\" role=\"navigation\">
+                                            <ul class=\"sf-menu\" id=\"fh5co-primary-menu\">
+                                                <li class=\"active\"><a href=\"../Nuova HomePage/index.html\">Search</a></li>
+                                                <li><input type=\"search\" id=\"search\"></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                 </div>
+                                 </header>";
                     $result = pg_query($q1) or die('Query failed: ' .pg_last_error());
                     echo "<section>
                           <h1>Flights Found</h1>
@@ -75,7 +102,7 @@
                         foreach($line as $col_value) {
                             echo "<td>$col_value</td>";
                         }
-                        echo "<td><a href=\"Pagamento/Pagamento.php?p0=$line[p0]&p1=$line[p1]&p2=$line[p2]&p3=$line[p3]&p4=$line[p4]&p5=$line[p5]&p6=$line[p6]&p7=$line[p7]&p8=$line[p8]&p9=$line[p9]&p10=$line[p10]&p11=$line[p11]&p12=$line[p12]&p13=$line[p13]\">Select</a></td>\n";
+                        echo "<td><a class=\"my_button\" href=\"Pagamento/Pagamento.php?p0=$line[p0]&p1=$line[p1]&p2=$line[p2]&p3=$line[p3]&p4=$line[p4]&p5=$line[p5]&p6=$line[p6]&p7=$line[p7]&p8=$line[p8]&p9=$line[p9]&p10=$line[p10]&p11=$line[p11]&p12=$line[p12]&p13=$line[p13]\">Select</a></td>\n";
                         echo "</tr>\n";
                     }
                     echo "</tbody>
