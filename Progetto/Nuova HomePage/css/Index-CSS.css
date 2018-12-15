@@ -51,3 +51,113 @@
 .custom-control{
 	margin-left: 4%;
 }
+
+@media screen and (max-width:320px){
+	.image-map{
+		margin-left: -35%;
+		max-width: 170%;
+		transform: rotate(90deg);
+	}
+}
+
+@media screen and (max-width:480px){
+	.image-map{
+		transform: rotate(90deg);
+		margin-left: -35%;
+		max-width: 170%;
+	}
+	.fh5co-cover{
+		margin-top: -11%;
+	}
+	.fh5co-section-gray{
+		margin-top: 25%;
+	}
+}
+
+@media screen and (max-width:768px){
+	.image-map{
+		max-width: 100%;
+		margin-left: 0%
+	}
+}
+
+@media screen and (max-width:1024px){
+	.image-map{
+		max-width: 100%;
+		margin-left: 0%
+	}
+}
+
+@media screen and (max-width:1440px){
+	
+}
+
+@media screen and (min-width:1024px){
+	.image-map{
+		max-width: 100%;
+	}
+}
+
+#mintemp {
+	width: auto;
+}
+
+#savethis{
+	width: auto;
+}
+
+#maxtemp{
+	width: auto;
+}
+
+#departure{
+	width: auto;
+}
+
+#depDate{
+	width: auto;
+}
+
+#retDate{
+	width: auto;
+}
+
+#continental{
+	width: auto;
+}
+
+#departureCity{
+    width: 100%;
+    border: 1px solid #ccc;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    display: block;
+    padding: 10px 20px;
+    height: 42px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555555;
+    background-color: #fff;
+    border-radius: 4px;
+    background-image: none;
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    font-family: inherit;
+    margin: 0;
+    font-family: inherit;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-weight: 300;
+}
+
+@media screen and (max-width:320px){
+	#departureCity{
+		transform: translate(-14px);
+	}
+	.fh5co-section-gray{
+		margin-top: 10%;
+	}
+}

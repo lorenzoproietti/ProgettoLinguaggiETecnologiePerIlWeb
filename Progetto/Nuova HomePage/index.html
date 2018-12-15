@@ -92,7 +92,7 @@
 				<div class="desc">
 					<div class="container">
 						<div class="row">
-							<div class="col-sm-5 col-md-5">
+							<div class="col-md-5 col-sm-11">
 								<div class="tabulation animate-box">
 
 								  <!-- Nav tabs -->
@@ -108,21 +108,21 @@
 									 <div role="tabpanel" class="tab-pane active" id="flights">
 										<div class="row">
 											<div class="col-xxs-12 col-xs-6 mt col-lg-12">
-												<div class="firstRow">
-               										<label for="departureCity">Departure City</label>
+												<div class="firstRow col-xs-12">
+               										<label for="departureCity" id="departure">Departure City</label>
                									  <input type="text" class="form-control" id="departureCity" name="dC">
             									</div>
 											</div>
-										<div class="col-xxs-12 col-xs-6 mt alternate">
-											<label for="departureDate">Departure Date</label>
+										<div class="col-xxs-12 col-xs-6 mt alternate col-lg-12">
+											<label for="departureDate" id="depDate">Departure Date</label>
                 							<input type="date" class="form-control" id="departureDate" name="dD">
 										  </div>
-											<div class="col-xxs-12 col-xs-6 mt alternate">
-												<label for="returnDate">Return Date</label>
+											<div class="col-xxs-12 col-xs-6 mt alternate col-sm-12">
+												<label for="returnDate" id="retDate">Return Date</label>
                 								<input type="date" class="form-control" id="returnDate" name="rD">
 											</div>
 											<div class="col-sm-12 mt">
-												<label for="continentalArea">Continental Area</label>
+												<label for="continentalArea" id="continental">Continental Area</label>
               									<select id="continentalArea" name="cA">
                   									<option selected value="None"></option>
                   									<option value="Eastern Europe">Eastern Europe</option>
@@ -137,17 +137,17 @@
                 								</select>
 											</div>
 											<div class="col-xxs-12 col-xs-6 mt">
-												<label for="temp1">Minimum Temperature</label>
+												<label for="temp1" id="mintemp" >Minimum Temperature</label>
               									<input type="number" class="form-control" id="temp1" name="t1">
 											</div>
 											<div class="col-xxs-12 col-xs-6 mt">
-												<label for="temp2">Maximum Temperature</label>
+												<label for="temp2" id="maxtemp">Maximum Temperature</label>
               									<input type="number" class="form-control" id="temp2" name="t2">
 											</div>
 											<hr class="mb-5">
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input" id="save-info" onChange="return infoClient();">
-												<label class="custom-control-label" for="save-info">Save this information for next time</label>
+												<label class="custom-control-label" for="save-info" id="savethis">Save this information for next time</label>
 											</div>
 											<div class="col-xs-12">
 												<input type="submit" name="Check" class="btn btn-primary btn-block" value="Search Flight">
@@ -214,7 +214,7 @@
 		<div id="fh5co-features">
 		  <div class="container">
 		    <div class="row">
-		      <div class="col-md-4 animate-box col-lg-12">
+		      <div class="animate-box col-lg-12 col-md-12">
 				<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 				  <h3>Where do you want to go?</h3>
 				  <p>Click on map</p>
