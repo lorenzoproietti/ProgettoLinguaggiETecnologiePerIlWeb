@@ -26,14 +26,118 @@
           $mail_mittente = "lorenzoproietti16@gmail.com";
           $mail_destinatario = $_POST['email'];
           $mail_oggetto = "Payment Summary";
-          $mail_corpo = "DEPARTURE PLANE CODE: " . $_SESSION['codiceAereoPartenza'] . "\r\nDEPARTURE AIRLINE: " . $_SESSION['compagniaPartenza'] . "\r\nDEPARTURE CITY: " . $_SESSION['cittàPartenza1'] . "\r\nARRIVAL CITY: " . $_SESSION['cittàArrivo1'] . "\r\nDEPARTURE DATE: " . $_SESSION['partenza1'] . "\r\nARRIVAL DATE: " . $_SESSION['arrivo1'] . "\r\nPRICE: " . $_SESSION['prezzo1'] . "\r\nRETURN PLANE CODE: " . $_SESSION['codiceAereoRitorno'] . "\r\nRETURN AIRLINE: " . $_SESSION['compagniaRitorno'] . "\r\nDEPARTURE CITY: " . $_SESSION['cittàPartenza2'] . "\r\nARRIVAL CITY: " . $_SESSION['cittàArrivo2'] . "\r\nDEPARTURE DATE: " . $_SESSION['partenza2'] . "\r\nARRIVAL DATE: " . $_SESSION['arrivo2'] . "\r\nPRICE: " . $_SESSION['prezzo2']; 
           $mail_headers = "From: " .  $nome_mittente . " <" .  $mail_mittente . ">\r\n";
           $mail_headers .= "Reply-To: " .  $mail_mittente . "\r\n";
-          $mail_headers .= "X-Mailer: PHP/" . phpversion();
-          if (mail($mail_destinatario, $mail_oggetto, $mail_corpo, $mail_headers))
-            echo "Messaggio inviato con successo a " . $mail_destinatario;
-          else
-            echo "Errore. Nessun messaggio inviato.";
+          $mail_headers .= "X-Mailer: PHP/" . phpversion(). "\r\n";
+          $mail_headers .= "MIME-Version: 1.0\r\n";
+          $mail_headers .= "Content-type: text/html; charset=iso-8859-1";
+          $mail_corpo = '
+            <!DOCTYPE html>
+            <html>
+              <head>
+                <title>Payment Summary</title>
+                <style>
+                  table {
+                    font-family: "Helvetica Neue", Helvetica, sans-serif
+                  }
+  
+                  caption {
+                    text-align: left;
+                    color: silver;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    padding: 5px;
+                  }
+    
+                  thead {
+                    background: SteelBlue;
+                    color: white;
+                  }
+                  
+                  th,td {
+                    padding: 5px 10px;
+                  }
+                  
+                  tbody tr:nth-child(even) {
+                    background: WhiteSmoke;
+                  }
+                  
+                  tbody tr td:nth-child(2) {
+                    text-align:center;
+                  }
+                  
+                  tbody tr td:nth-child(3),
+                  tbody tr td:nth-child(4) {
+                    text-align: right;
+                    font-family: monospace;
+                  }
+                  
+                  tfoot {
+                    background: SeaGreen;
+                    color: white;
+                    text-align: right;
+                  }
+                  
+                  tfoot tr th:last-child {
+                    font-family: monospace;
+                  }
+                </style>
+              </head>
+              <body>
+                This is the payment summary for ' . $_POST['first-name'] . ' ' . $_POST['last-name'] . ' with ' . $_GET['cardType'] . ' from Travel Traker performed the day ' . $_GET['giorno'] . ' ' . $_GET['data'] . ' at ' . $_GET['ora'] . ':' .
+                '<table>
+                  <caption>Payment Summary</caption>
+                  <thead>
+                    <tr>
+                      <th>Plane Code</th>
+                      <th>Airline</th>
+                      <th>Departure City</th>
+                      <th>Arrival City</th>
+                      <th>Departure Date</th>
+                      <th>Arrival Date</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>' . $_SESSION['codiceAereoPartenza'] . '</td>
+                      <td>' . $_SESSION['compagniaPartenza'] . '</td>
+                      <td>' . $_SESSION['cittàPartenza1'] . '</td>
+                      <td>' . $_SESSION['cittàArrivo1'] . '</td>
+                      <td>' . $_SESSION['partenza1'] . '</td>
+                      <td>' .$_SESSION['arrivo1'] . '</td>
+                      <td>' . $_SESSION['prezzo1'] . '$</td>
+                    </tr>';
+          $total;
+          if($_SESSION['oneWay'] == 0) {
+            $mail_corpo .= '
+                    <tr>
+                      <td>' . $_SESSION['codiceAereoRitorno'] . '</td>
+                      <td>' . $_SESSION['compagniaRitorno'] . '</td>
+                      <td>' . $_SESSION['cittàPartenza2'] . '</td>
+                      <td>' . $_SESSION['cittàArrivo2'] . '</td>
+                      <td>' . $_SESSION['partenza2'] . '</td>
+                      <td>' . $_SESSION['arrivo2'] . '</td>
+                      <td>' . $_SESSION['prezzo2'] . '$</td>
+                    </tr>';
+            $total = (string)(intval($_SESSION['prezzo1']) + intval($_SESSION['prezzo2']));
+          }
+          else $total = $_SESSION['prezzo1'];
+          $mail_corpo .= '
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th colspan="6">Grand Total</th>
+                      <th>' .  $total . '$</th>
+                    </tr>
+                  </tfoot>
+                </table>
+              </body>
+            </html>';
+            if (mail($mail_destinatario, $mail_oggetto, $mail_corpo, $mail_headers))
+              echo "Messaggio inviato con successo a " . $mail_destinatario;
+            else
+              echo "Errore. Nessun messaggio inviato.";
           $_SESSION = array();
           session_destroy();
         }

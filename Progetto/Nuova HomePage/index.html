@@ -56,11 +56,24 @@
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
-	<![endif]-->
 
 	<script type="text/javascript" language="javascript" src="formScript.js"></script>
+
+	<style>
+		
+		form#Flights input[type="radio"] {
+			position: relative;
+            left: 18px;
+        }
+
+		form#Flights label.radioLabel {
+            background:none no-repeat left 50%;
+            line-height: 20px;
+            padding: 0 0 0 20px;
+            width: auto;
+        }
+	</style>
 
 	</head>
 	<body onLoad="return sectFields();">
@@ -74,14 +87,13 @@
 					<h1 id="fh5co-logo"><a href="index.html"><em class="icon-airplane"></em>Travel Tracker</a></h1>
 					<!-- START #fh5co-menu-wrap -->
 					
-					<nav id="fh5co-menu-wrap" role="navigation">
-						<ul class="sf-menu" id="fh5co-primary-menu">
-							<li class="active"><a href="index.html">Search</a></li>
-							<li><input type="search" id="search"></li>
-						</ul>
-					</nav>
+					<ul class="sf-menu" id="fh5co-primary-menu">
+						<li class="active"><a id="ref" href="index.html" onClick="return setHref();">Search City</a></li>
+						<li><input type="search" id="search" onsearch="searchCity()"></li>
+					</ul>
 				</div>
 			</div>
+			
 		</header>
 
 		<!-- end:header-top -->
@@ -92,7 +104,7 @@
 				<div class="desc">
 					<div class="container">
 						<div class="row">
-							<div class="col-md-5 col-sm-11">
+							<div class="col-sm-5 col-md-5">
 								<div class="tabulation animate-box">
 
 								  <!-- Nav tabs -->
@@ -104,25 +116,30 @@
 
 								   <!-- Tab panes -->
 									<div class="tab-content">
-									<form class="needs-validation" novalidate method="post" action="../paginaForm/flights.php" onSubmit="return validaForm();">
+									<form id="Flights" class="needs-validation" novalidate method="post" onSubmit="return validaForm();">
 									 <div role="tabpanel" class="tab-pane active" id="flights">
 										<div class="row">
 											<div class="col-xxs-12 col-xs-6 mt col-lg-12">
-												<div class="firstRow col-xs-12">
-               										<label for="departureCity" id="departure">Departure City</label>
+												<div class="firstRow">
+               										<label for="departureCity">Departure City</label>
                									  <input type="text" class="form-control" id="departureCity" name="dC">
-            									</div>
+												</div>
 											</div>
-										<div class="col-xxs-12 col-xs-6 mt alternate col-lg-12">
-											<label for="departureDate" id="depDate">Departure Date</label>
+										<input type="radio" id="roundtrip" name="travelType" checked onChange="disableFields()">
+										<label class="radioLabel" for="roundtrip">&nbspRoundtrip</label>
+										<input type="radio" id="oneWay" name="travelType" onChange="disableFields()">
+										<label class="radioLabel" for="oneWay">&nbspOne Way</label>
+										<br>
+										<div class="col-xxs-12 col-xs-6 mt alternate">
+											<label for="departureDate">Departure Date</label>
                 							<input type="date" class="form-control" id="departureDate" name="dD">
 										  </div>
-											<div class="col-xxs-12 col-xs-6 mt alternate col-sm-12">
-												<label for="returnDate" id="retDate">Return Date</label>
+											<div class="col-xxs-12 col-xs-6 mt alternate">
+												<label for="returnDate">Return Date</label>
                 								<input type="date" class="form-control" id="returnDate" name="rD">
 											</div>
 											<div class="col-sm-12 mt">
-												<label for="continentalArea" id="continental">Continental Area</label>
+												<label for="continentalArea">Continental Area</label>
               									<select id="continentalArea" name="cA">
                   									<option selected value="None"></option>
                   									<option value="Eastern Europe">Eastern Europe</option>
@@ -137,17 +154,17 @@
                 								</select>
 											</div>
 											<div class="col-xxs-12 col-xs-6 mt">
-												<label for="temp1" id="mintemp" >Minimum Temperature</label>
+												<label for="temp1">Minimum Temperature</label>
               									<input type="number" class="form-control" id="temp1" name="t1">
 											</div>
 											<div class="col-xxs-12 col-xs-6 mt">
-												<label for="temp2" id="maxtemp">Maximum Temperature</label>
+												<label for="temp2">Maximum Temperature</label>
               									<input type="number" class="form-control" id="temp2" name="t2">
 											</div>
 											<hr class="mb-5">
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input" id="save-info" onChange="return infoClient();">
-												<label class="custom-control-label" for="save-info" id="savethis">Save this information for next time</label>
+												<label class="custom-control-label" for="save-info">Save this information for next time</label>
 											</div>
 											<div class="col-xs-12">
 												<input type="submit" name="Check" class="btn btn-primary btn-block" value="Search Flight">
@@ -186,7 +203,7 @@
 						  <div class="desc">
 								<span></span>
 							<h3>New York</h3>
-							<span>USA, America</span> <a class="btn btn-primary btn-outline" href="#">Book Now <em class="icon-arrow-right22"></em></a></div>
+							<span>USA, America</span> <a class="btn btn-primary btn-outline" href="City.html" onClick="sectNYC()">Book Now <em class="icon-arrow-right22"></em></a></div>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
@@ -194,7 +211,7 @@
 						  <div class="desc">
 								<span></span>
 								<h3>Paris</h3>
-								<span>France, Europe</span> <a class="btn btn-primary btn-outline" href="#">Book Now <em class="icon-arrow-right22"></em></a></div>
+								<span>France, Europe</span> <a class="btn btn-primary btn-outline" href="City.html" onClick="sectParis()">Book Now <em class="icon-arrow-right22"></em></a></div>
 						</div>
 					</div>
 				<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
@@ -203,7 +220,7 @@
 								<span></span>
 							<h3>Rome</h3>
 							  <span>Italy, Europe</span>
-							  <a class="btn btn-primary btn-outline" href="#">Book Now <i class="icon-arrow-right22"></i></a>
+							  <a class="btn btn-primary btn-outline" href="City.html" onClick="sectRome()">Book Now <i class="icon-arrow-right22"></i></a>
 						  </div>
 						</div>
 				  </div>
@@ -214,7 +231,7 @@
 		<div id="fh5co-features">
 		  <div class="container">
 		    <div class="row">
-		      <div class="animate-box col-lg-12 col-md-12">
+		      <div class="col-md-4 animate-box col-lg-12">
 				<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 				  <h3>Where do you want to go?</h3>
 				  <p>Click on map</p>

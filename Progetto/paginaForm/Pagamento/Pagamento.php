@@ -49,6 +49,44 @@
 			padding: 10px;
 		}
 	</style>
+
+	<script>
+
+		function setAction() {
+			var cardType;
+			if(document.getElementById("visa").checked) cardType = "Visa";
+			else if(document.getElementById("amex").checked) cardType = "Amex";
+			else if(document.getElementById("mastercard").checked) cardType = "MasterCard";
+			else cardType = " PayPal";
+			new Date();
+			dat = new Date();
+			gg = dat.getDate();
+			mm = (dat.getMonth() + 1);
+			aa = dat.getFullYear();
+			data_corr= gg + "-" + mm + "-" + aa;
+			hh = dat.getHours();
+			mn = dat.getMinutes();
+			ora_corr= hh + ":" + mn;
+			giorno = dat.getDay();
+			if (giorno == 1) {
+				sett = "Monday";
+			} else if (giorno == 2) {
+				sett = "Tuesday";
+			} else if (giorno == 3) {
+				sett = "Wednesday";
+			} else if (giorno == 4) {
+				sett = "Thursday";
+			} else if (giorno == 5) {
+				sett = "Friday";
+			} else if (giorno == 6) {
+				sett = "Saturday";
+			} else if (giorno == 0) {
+				sett = "Sunday";
+			}
+			document.getElementById("Payment").setAttribute("action", "Conferma/Conferma.php?cardType=" + cardType + "&giorno=" + sett + "&data=" + data_corr + "&ora=" + ora_corr);
+		}
+
+	</script>
 	
 </head>
 <body>
@@ -61,19 +99,23 @@
         $_SESSION['cittàArrivo1'] = $_GET['p3'];
         $_SESSION['partenza1'] = $_GET['p4'];
         $_SESSION['arrivo1'] = $_GET['p5'];
-        $_SESSION['prezzo1'] = $_GET['p6'];
-        $_SESSION['codiceAereoRitorno'] = $_GET['p7'];
-        $_SESSION['compagniaRitorno'] = $_GET['p8'];
-        $_SESSION['cittàPartenza2'] = $_GET['p9'];
-        $_SESSION['cittàArrivo2'] = $_GET['p10'];
-        $_SESSION['partenza2'] = $_GET['p11'];
-        $_SESSION['arrivo2'] = $_GET['p12'];
-        $_SESSION['prezzo2'] = $_GET['p13'];
+		$_SESSION['prezzo1'] = $_GET['p6'];
+		if($_GET['oneWay'] == 0) {
+			$_SESSION['codiceAereoRitorno'] = $_GET['p7'];
+			$_SESSION['compagniaRitorno'] = $_GET['p8'];
+			$_SESSION['cittàPartenza2'] = $_GET['p9'];
+			$_SESSION['cittàArrivo2'] = $_GET['p10'];
+			$_SESSION['partenza2'] = $_GET['p11'];
+			$_SESSION['arrivo2'] = $_GET['p12'];
+			$_SESSION['prezzo2'] = $_GET['p13'];
+			$_SESSION['oneWay'] = 0;
+		}
+		else $_SESSION['oneWay'] = 1;
     ?>
 
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form" id="Payment" method="post" action="Conferma/Conferma.php">
+			<form class="contact100-form validate-form" id="Payment" method="post">
 				<span class="contact100-form-title">
 					Insert your data
 				</span>
@@ -145,7 +187,7 @@
 				</div>
 
 				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn" name="Check"> 
+					<button class="contact100-form-btn" name="Check" onClick="setAction()"> 
 						Buy it!
 					</button>
 				</div>
