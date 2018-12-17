@@ -10,7 +10,7 @@
 
     <link href="css/cover.css" rel="stylesheet">
 
-    <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
+    <link rel="icon" type="image/png" href="../images/icons/Cattura.ico"/>
   </head>
 
   <body class="text-center" background="download.jpg">

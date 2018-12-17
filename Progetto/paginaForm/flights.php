@@ -16,7 +16,7 @@
 	
     <link rel="stylesheet" href="css/style.css">
     
-    <link rel="icon" type="image/png" href="Pagamento/images/icons/favicon.ico"/>
+    <link rel="icon" type="image/png" href="Pagamento/images/icons/Cattura.ico"/>
 
         <style>
             
