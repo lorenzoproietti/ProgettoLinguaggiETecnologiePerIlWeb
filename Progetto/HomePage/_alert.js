@@ -11,7 +11,6 @@ function _alert(action, message, redi) {
 	alertheight = alertheight - alertheight*2;
 	$("#alert").attr("style","margin-top: "+alertheight);
 	$("#alert,#black_screen_alert").fadeIn(200);
-	//$("html").css("overflow","hidden");
 }
 
 $(document).on("click","#black_screen_alert,#closebutton", function() {

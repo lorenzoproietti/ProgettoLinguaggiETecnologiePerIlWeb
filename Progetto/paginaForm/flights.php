@@ -7,15 +7,16 @@
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
-	<link rel="stylesheet" href="../Nuova HomePage/css/icomoon.css">
-	<link rel="stylesheet" href="../Nuova HomePage/css/style.css">
+	<link rel="stylesheet" href="../HomePage/css/icomoon.css">
+	<link rel="stylesheet" href="../HomePage/css/style.css">
 	
     <link rel="stylesheet" href="css/TableCSS.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
-	<!-- Superfish -->
 	<link rel="stylesheet" href="css/superfish.css">
 	
-	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="icon" type="image/png" href="Pagamento/images/icons/favicon.ico"/>
 
         <style>
             
@@ -39,7 +40,7 @@
         <?php
                 $dbconn = pg_connect("host=localhost port=5432 dbname=ProgettoLTW user=postgres password=Lulic71.") or die('Could not connect: '.pg_last_error());
                 if(!(isset($_POST['Check']))) {
-                    header("Location: ../Nuova HomePage/index.html");
+                    header("Location: ../HomePage/index.html");
                 }
                 else {
                     $departureCity = $_POST['dC'];
@@ -53,11 +54,12 @@
                                     <div class=\"container\">
                                         <div class=\"nav-header\">
                                             <a href=\"#\" class=\"js-fh5co-nav-toggle fh5co-nav-toggle dark\"><i></i></a>
-                                            <h1 id=\"fh5co-logo\"><a href=\"../Nuova HomePage/index.html\"><em class=\"icon-airplane\"></em>Travel Tracker</a></h1>
+                                            <h1 id=\"fh5co-logo\"><a href=\"../HomePage/index.html\"><em class=\"icon-airplane\"></em>Travel Tracker</a></h1>
                                     
                                         </div>
                                     </div>
                            </header>";
+                    $result;
                     if($oneWay == 0) {
                         $q1 = "select v1.codice as p0, v1.compagnia as p1, v1.partenza as p2, v1.arrivo as p3, v1.giornopartenza as p4, v1.giornoarrivo as p5, CAST(v1.prezzo AS int) as p6, v2.codice as p7, v2.compagnia as p8, v2.partenza as p9, v2.arrivo as p10, v2.giornopartenza as p11, v2.giornoarrivo as p12, CAST(v2.prezzo AS int) as p13
                             from voli v1 join citta on v1.arrivo = nome join voli v2 on v2.partenza = v1.arrivo and v2.arrivo = v1.partenza
@@ -107,7 +109,6 @@
                               </table>
                               </div>
                               </section>";
-                        pg_free_result($result);
                     }
                     else {
                         $q1 = "select v1.codice as p0, v1.compagnia as p1, v1.partenza as p2, v1.arrivo as p3, v1.giornopartenza as p4, v1.giornoarrivo as p5, CAST(v1.prezzo AS int) as p6
@@ -150,9 +151,9 @@
                               </table>
                               </div>
                               </section>";
-                        pg_free_result($result);
 
                     }
+                    pg_free_result($result);
                     pg_close($dbconn);
                 }
         ?>

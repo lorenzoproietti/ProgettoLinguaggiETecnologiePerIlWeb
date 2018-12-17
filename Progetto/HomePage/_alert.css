@@ -62,7 +62,6 @@
 	line-height: 30px;
 	float: right;
 	padding: 0px 10px;
-	/*padding-right: 23px;*/
 	color: #fff;
 	font-family: arial;
 	font-size: 14px;
@@ -70,6 +69,5 @@
 	-moz-border-radius: 	5px;
 	border-radius: 			5px;
 	background: #fa4b2a;
-	/*background: #fa4b2a url('image/iconclosealert.png') right no-repeat;*/
 	cursor: pointer;
 }

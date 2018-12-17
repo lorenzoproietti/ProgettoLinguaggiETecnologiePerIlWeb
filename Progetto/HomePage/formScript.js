@@ -97,7 +97,7 @@ function sectAttributes() {
     document.getElementById("h1").setAttribute("data-title", city[0].toUpperCase() + city.substring(1, city.length));
     document.getElementById("h1").innerText = city[0].toUpperCase() + city.substring(1, city.length);
     document.getElementById("imageB").setAttribute("style", "background-image: url(images/" + city.replace(" ", "") + ".jpg)");
-    document.getElementById("country").innerText = "Country: " + map[city];
+    document.getElementById("country").innerText = "Nazione: " + map[city];
 }
 
 function sectNYC() {
